@@ -29,6 +29,9 @@ class Brand(models.Model):
     api_updated = models.DateTimeField(auto_now=True)
     api_changed = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Unit(models.Model):
     packed = models.BooleanField(null=False, default=True)
@@ -37,6 +40,9 @@ class Unit(models.Model):
     name = models.CharField(max_length=200)
     api_updated = models.DateTimeField(auto_now=True)
     api_changed = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Category(models.Model):
@@ -51,6 +57,9 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     api_updated = models.DateTimeField(auto_now=True)
     api_changed = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
@@ -72,6 +81,12 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     api_updated = models.DateTimeField(auto_now=True)
     api_changed = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id']
 
 
 class Shop(models.Model):
